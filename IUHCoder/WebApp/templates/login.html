@@ -1,19 +1,24 @@
 {% extends 'layout.html' %}
 
-{% block content %}
-	<title>Flask Intro - login page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+{% block title %}Customtest{% endblock %}
 
-	<div class='container'>
-		<h1>Login</h1>
-		<br>
-		<form action="" method="post" accept-charset="utf-8">
-			<input type="text" name="username" placeholder="Username" value="{{request.form.username}}">
-			<input type="text" name="password" placeholder="Password" value="{{request.form.password}}">
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+{% block content %}
+	{% if session['logged_in'] %}
+		<p>You're logged in already!</p>
+	{% else %}
+		<form action="/login" method="POST">
+  			<input type="username" 
+  					name="username" 
+  					placeholder="Username">
+  			<input type="password" 
+  					name="password" 
+  					placeholder="Password">
+  			<input type="submit" 
+  					value="Log in">
 		</form>
-		{% if error %}
-			<p class="error"><strong>Error:</strong>{{error}}</p>
-		{% endif %}
-	</div>
+	{% endif %}
 {% endblock %}

@@ -1,10 +1,16 @@
 {% extends 'layout.html' %}
 
+{% block title %}Customtest{% endblock %}
+
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
 {% block content %}
-	<form method='POST' class = 'noteform'>
-		<label for='notetext'>
-			notetext
-			<textarea name="notetext"></textarea>
+	<form method='POST' class = 'editor'>
+		<label for='codetext'>
+			Code text
+			<textarea name="codetext"></textarea>
 		</label>
 		<input type='submit' name='customtest' value='Run'>
 	</form>
