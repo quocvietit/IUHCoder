@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask
 from WebApp.views.index import bp as index_bp
 from WebApp.views.customtest import bp as customtest_bp
 from WebApp.views.problems import bp as problems_bp
