@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from Compiler.Languages.writeFile import writeFile as wf
+from ControlPanels.controler.Customtest import customtes as ct
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
 
@@ -8,7 +8,8 @@ bp = Blueprint(__name__, __name__, template_folder='templates')
 def show():
     if request.method == 'POST':
         if request.form.get('customtest'):
-            text = request.form.get('codetext')
-            wf(text)
+            codeText = request.form.get('codetext')
+            inputText = request.form.get('inputtext')
+            ct(codeText, inputText)
 
     return render_template("customtest.html")
