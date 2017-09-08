@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Problems
+{% endblock %}
+
+{% block blog %}c
+	Wellcome to IUHCoder
+{% endblock %}
+
+{% block import %}
+	<!-- table-->
+    <link rel="stylesheet" 
+			type="text/css" 
+			href='{{ url_for("static", filename="css/table.css") }}'>
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<!-- Page Heading -->
+        <div class="row">
+        	<div class="col-lg-12">
+                <h1 class="page-header">
+                    Problems <small></small>
+                </h1>
+            </div>
+        </div>
+        
+        <!--tables-->
+        <div class="card mb-3">
+        	<!-- heading-->
+        	<div class="card-header">
+        		<i class="fa fa-table"></i>
+        		Danh sach bai tap
+        	</div>
+
+        	<!--problems-->
+        	<div class="card-body">
+        		<div class="table-responsive">
+	        		<table class="table table-bordered table-striped table-hover" width="100%" id="problem_table" cellspacing="0">
+	        			<caption></caption>
+	        			<thead>
+	        				<tr>
+	        					<th>#</th>
+	        					<th>NAME</th>
+	        					<th>TAG</th>
+	        					<th>SOVLE</th>
+	        				</tr>
+	        			</thead>
+	        			<tbody>
+	        				<tr>
+	        					<td>001</td>
+	        					<td>EASy</td>
+	        					<td>MATH</td>
+	        					<td>10000</td>
+	        				</tr>
+	        				<tr>
+	        					<td>001</td>
+	        					<td>EASy</td>
+	        					<td>MATH</td>
+	        					<td>10000</td>
+	        				</tr>
+	        			</tbody>
+	        		</table>
+        		</div>
+        	</div>
+        	<div class="card-footer small text-muted">
+            Updated yesterday at 00:00 PM
+          	</div>
+        </div>
+    </div>
+{% endblock %}

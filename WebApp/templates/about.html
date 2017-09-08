@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Contests
+{% endblock %}
+
+{% block blog %}
+	Wellcome to IUHCoder
+{% endblock %}
+
+{% block import %}
+	<!-- table-->
+    <link rel="stylesheet" 
+			type="text/css" 
+			href='{{ url_for("static", filename="css/table.css") }}'>
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<!-- Page Heading -->
+        <div class="row">
+        	<div class="col-lg-12">
+                <h1 class="page-header">
+                    About <small></small>
+                </h1>
+            </div>
+        </div>
+        
+        <!--tables-->
+        <div class="card mb-3">
+        	<!-- heading-->
+        	<div class="card-header">
+        		<i class="fa fa-table"></i>
+        		Hệ thống chấm bài lập trình.
+        	</div>
+        	<h1> IUHCoder<h1>
+        	<h2> 
+        		Tác giả:
+        		<ul>
+        			<li>Vương Quốc Việt</li>
+        			<li>Phan Bảo Trinh</li>
+        		</ul> 
+        	</h2>
+        	<div class="card-footer small text-muted">
+            Updated yesterday at 00:00 PM
+          	</div>
+        </div>
+    </div>
+{% endblock %}
