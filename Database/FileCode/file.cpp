@@ -13,6 +13,6 @@ vector<pair<int,int> > vpr;
 map<int,int> mpr,mgt, mans;
 map<int,int>::iterator it;
 int main(){
-    cin>>n>>v;
-    cout<<n+v<<endl;
+    cin>>s;
+    cout<<s<<" cho"<<endl;
 }
