@@ -115,3 +115,7 @@ small {
 .text-muted {
   color: #868e96 !important;
 }
+
+.div-center{
+  margin: 0px auto;
+}

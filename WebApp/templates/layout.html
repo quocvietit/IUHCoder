@@ -1,229 +1,79 @@
+
+
 <!DOCTYPE html>
 <html lang='en'>
-	<head>
-		
-		<meta charset="utf-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<meta name="description" content="">
-    	<meta name="author" content="">
-
-		<title class="fa-code"> 
-			{% block title %}
-				{# title website #}
-			{% endblock %}
-			- IUHCoder
-		</title>
-
-		<!-- Bootstrap Core CSS -->
-		<link rel="stylesheet" 
-			type="text/css" 
-			href='{{ url_for("static", filename="css/bootstrap.min.css") }}'>
-
-    	<!-- Custom CSS -->
-    	<link rel="stylesheet" 
-			type="text/css" 
-			href='{{ url_for("static", filename="css/style.css") }}'>
-
-    	<!-- Morris Charts CSS -->
-    	<link rel="stylesheet" 
-			type="text/css" 
-			href='{{ url_for("static", filename="css/plugins/morris.css") }}'>
-
-    	<!-- Custom Fonts -->
-    	<link rel="stylesheet" 
-			type="text/css" 
-			href='{{ url_for("static", filename="font-awesome/css/font-awesome.min.css") }}'>
-		{% block import %}
-    		{# import #}
-		{% endblock %}
-	</head>
-	<body>
-		<!--<div id="wrapper">
-
-        	<!-- Navigation -->
-        	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-
-            	<!-- list category -->
-            	<div class="navbar-header">
-                	<ul class="nav navbar-nav">
-                    	<li>
-	                        <a href="/"><i class="fa fa-fw fa-home"></i> HOME</a>
-	                    </li>
-	                    <li>
-	                        <a href="/problems"><i class="fa fa-fw fa-bars"></i> PROBLEMS</a>
-	                    </li>
-	                    <li>
-	                        <a href="/contests"><i class="fa fa-fw fa-table"></i> CONTESTS</a>
-	                    </li>
-	                    <li>
-	                        <a href="/rating"><i class="fa fa-fw fa-bar-chart-o"></i> RATING</a>
-	                    </li>
-	                    <li>
-	                        <a href="/customtest"><i class="fa fa-fw fa-code"></i> CUSTOMTEST</a>
-	                    </li>
-	                    <li>
-	                        <a href="/about"><i class="fa fa-fw fa-book"></i> ABOUT</a>
-	                    </li>
-               	 	</ul>
-            	</div>
-            	{% if not logged_in %}
-            		<ul class="nav navbar-right top-nav">
-            			<li>
-	                        <a href="/login"><i class="fa fa-fw fa-sign-in" aria-hidden="true"></i> LOGIN</a>
-	                    </li>
-            		</ul>
- 				{% else %}
-	            	<!-- Menu user -->
-		            <ul class="nav navbar-right top-nav">
-		                <li class="dropdown">
-		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-		                    <ul class="dropdown-menu message-dropdown">
-		                        <li class="message-preview">
-		                            <a href="#">
-		                                <div class="media">
-		                                    <span class="pull-left">
-		                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-		                                    </span>
-		                                    <div class="media-body">
-		                                        <h5 class="media-heading"><strong>John Smith</strong>
-		                                        </h5>
-		                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-		                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-		                                    </div>
-		                                </div>
-		                            </a>
-		                        </li>
-		                        <li class="message-preview">
-		                            <a href="#">
-		                                <div class="media">
-		                                    <span class="pull-left">
-		                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-		                                    </span>
-		                                    <div class="media-body">
-		                                        <h5 class="media-heading"><strong>John Smith</strong>
-		                                        </h5>
-		                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-		                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-		                                    </div>
-		                                </div>
-		                            </a>
-		                        </li>
-		                        <li class="message-preview">
-		                            <a href="#">
-		                                <div class="media">
-		                                    <span class="pull-left">
-		                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-		                                    </span>
-		                                    <div class="media-body">
-		                                        <h5 class="media-heading"><strong>John Smith</strong>
-		                                        </h5>
-		                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-		                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-		                                    </div>
-		                                </div>
-		                            </a>
-		                        </li>
-		                        <li class="message-footer">
-		                            <a href="#">Read All New Messages</a>
-		                        </li>
-		                    </ul>
-		                </li>
-		                <li class="dropdown">
-		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-		                    <ul class="dropdown-menu alert-dropdown">
-		                        <li>
-		                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-		                        </li>
-		                        <li>
-		                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-		                        </li>
-		                        <li>
-		                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-		                        </li>
-		                        <li>
-		                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-		                        </li>
-		                        <li>
-		                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-		                        </li>
-		                        <li>
-		                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-		                        </li>
-		                        <li class="divider"></li>
-		                        <li>
-		                            <a href="#">View All</a>
-		                        </li>
-		                    </ul>
-		                </li>
-		                <li class="dropdown">
-	    					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	    						<i class="fa fa-user"></i> John Smith <b class="caret"></b>
-	    					</a>
-	    					<ul class="dropdown-menu">
-	        					<li>
-	           						<a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-	        					</li>
-	        					<li>
-	            					<a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-	        					</li>
-	        					<li>
-	        						<a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-	       						</li>
-	        					<li class="divider"></li>
-	        					<li>
-	            					<a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-	        					</li>
-	   						</ul>
-						</li> 
-		            </ul>
-		        {% endif %}
-
-	            <!-- list notify-->
-	            <!--
-	            <div class="collapse navbar-collapse navbar-ex1-collapse nav navbar-nav side-nav background-blog">
-                	{% block blog %}
-                		{# blog #}
-                	{% endblock %}
-            	</div>
-            	-->
-        	</nav>
-       
-        	<div id="page-wrapper">
-            	{% block content %}
-            		{# content #}
-            	{% endblock %}
-       		</div>
-        	<!-- /#page-wrapper -->
-
-        	<!--footer-->
-        	<div class="author">
-        		<div class="pull-right">
-        			<b>Version</b>
-        			<i>1.0.0 </i>
-        		</div>
-        		<strong>
-        			Copyright &#169; by 
-        			Quốc Việt
-        			<a href="https://facebook.com/quocviet.bmt.7"><i class="fa fa-facebook"></i></a>
-        			.
-        		</strong>
-        	 	All rights reserved.
-        	</div>
-
-    	</div>
-    	<!-- /#wrapper -->
-
-
-    	<!-- jQuery -->
-    	<script src="./statis/js/jquery.js"></script>
-
-    	<!-- Bootstrap Core JavaScript -->
-    	<script src="./statis/js/bootstrap.min.js"></script>
-
-    	<!-- Morris Charts JavaScript -->
-    	<script src="./statis/js/plugins/morris/raphael.min.js"></script>
-    	<script src="./statis/js/plugins/morris/morris.min.js"></script>
-   		<script src="./statis/js/plugins/morris/morris-data.js"></script>
-	</body>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title class="fa-code"> 
+         {% block title %}
+         {# title website #}
+         {% endblock %}
+         - IUHCoder
+      </title>
+      <!-- Bootstrap Core CSS -->
+      <link rel="stylesheet" 
+         type="text/css" 
+         href='{{ url_for("static", filename="css/bootstrap.min.css") }}'>
+      <!-- Custom CSS -->
+      <link rel="stylesheet" 
+         type="text/css" 
+         href='{{ url_for("static", filename="css/style.css") }}'>
+      <!-- Morris Charts CSS -->
+      <link rel="stylesheet" 
+         type="text/css" 
+         href='{{ url_for("static", filename="css/plugins/morris.css") }}'>
+      <!-- Custom Fonts -->
+      <link rel="stylesheet" 
+         type="text/css" 
+         href='{{ url_for("static", filename="font-awesome/css/font-awesome.min.css") }}'>
+      <!-- table-->
+      <link rel="stylesheet" 
+         type="text/css" 
+         href='{{ url_for("static", filename="css/table.css") }}'>
+      {% block import %}
+      {# import #}
+      {% endblock %}
+   </head>
+   <body>
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <!-- list category -->
+         {% include 'category.html'%}
+         <!-- Menu login-->
+         {% if not logged_in %}
+         <!-- login-->
+         <ul class="nav navbar-right top-nav">
+            <li>
+               <a href="/login"><i class="fa fa-fw fa-sign-in" aria-hidden="true"></i> LOGIN</a>
+            </li>
+         </ul>
+         {% else %}
+         {% include 'user.html'%}
+         {% endif %}
+      </nav>
+      <div id="page-wrapper">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-9">
+                  {% block content %}
+                  {# content #}
+                  {% endblock %}
+               </div>
+               <!-- blog -->
+               <div class="col-lg-3">
+                  {% include 'newfeed.html' %}
+                  {% include 'contacts.html' %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /#page-wrapper -->
+      <!--footer-->
+      {% include 'footer.html' %}
+   </body>
 </html>
+

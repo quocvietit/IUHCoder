@@ -9,64 +9,98 @@
 {% endblock %}
 
 {% block import %}
-	<!-- table-->
-    <link rel="stylesheet" 
-			type="text/css" 
-			href='{{ url_for("static", filename="css/table.css") }}'>
+<!-- table-->
+<link rel="stylesheet" 
+   type="text/css" 
+   href='{{ url_for("static", filename="css/table.css") }}'>
 {% endblock %}
 
 {% block content %}
-	<div class="container-fluid">
-		<!-- Page Heading -->
-        <div class="row">
-        	<div class="col-lg-12">
-                <h1 class="page-header">
-                    Contest <small></small>
-                </h1>
-            </div>
-        </div>
-        
-        <!--tables-->
-        <div class="card mb-3">
-        	<!-- heading-->
-        	<div class="card-header">
-        		<i class="fa fa-table"></i>
-        		Danh sách kỳ thi
-        	</div>
-
-        	<!--problems-->
-        	<div class="card-body">
-        		<div class="table-responsive">
-	        		<table class="table table-bordered" width="100%" id="problem_table" cellspacing="0">
-	        			<caption></caption>
-	        			<thead>
-	        				<tr>
-	        					<th>ID</th>
-	        					<th>NAME</th>
-	        					<th>AUTHOR</th>
-	        					<th>TIME</th>
-	        				</tr>
-	        			</thead>
-	        			<tbody>
-	        				<tr>
-	        					<td>001</td>
-	        					<td>EASy</td>
-	        					<td>Admin</td>
-	        					<td>02:00</td>
-	        				</tr>
-	        				<tr>
-	        					<td>001</td>
-	        					<td>EASy</td>
-	        					<td>Admin</td>
-	        					<td>05:00</td>
-	        				</tr>
-	        			</tbody>
-	        		</table>
-        		</div>
-        	</div>
-        	<div class="card-footer small text-muted">
-            Updated yesterday at 00:00 PM
-          	</div>
-        </div>
-    </div>
+<div class="container-fluid">
+   <!-- Page Heading -->
+   <div class="row">
+      <div class="col-lg-12">
+         <h1 class="page-header">
+            Contest <small></small>
+         </h1>
+      </div>
+   </div>
+   <!--contest new-->
+   <div class="card mb-3">
+      <!-- heading-->
+      <div class="card-header">
+         <i class="fa fa-table"></i>
+         Danh sách kỳ thi sắp diễn ra
+      </div>
+      <!--problems-->
+      <div class="card-body">
+         <div class="table-responsive">
+            <table class="table table-bordered" width="100%" id="problem_table" cellspacing="0">
+               <caption></caption>
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>NAME</th>
+                     <th>AUTHOR</th>
+                     <th>TIME</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>001</td>
+                     <td>EASy</td>
+                     <td>Admin</td>
+                     <td>02:00</td>
+                  </tr>
+                  <tr>
+                     <td>001</td>
+                     <td>EASy</td>
+                     <td>Admin</td>
+                     <td>05:00</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+   <!--tables old contests-->
+   <div class="card mb-3">
+      <!-- heading-->
+      <div class="card-header">
+         <i class="fa fa-table"></i>
+         Danh sách kỳ thi
+      </div>
+      <!--problems-->
+      <div class="card-body">
+         <div class="table-responsive">
+            <table class="table table-bordered" width="100%" id="problem_table" cellspacing="0">
+               <caption></caption>
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>NAME</th>
+                     <th>AUTHOR</th>
+                     <th>TIME</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>001</td>
+                     <td>EASy</td>
+                     <td>Admin</td>
+                     <td>02:00</td>
+                  </tr>
+                  <tr>
+                     <td>001</td>
+                     <td>EASy</td>
+                     <td>Admin</td>
+                     <td>05:00</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+</div>
 {% endblock %}
+

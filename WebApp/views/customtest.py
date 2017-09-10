@@ -3,6 +3,7 @@ from ControlPanels.controler.Customtest import customtes as ct
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
 
+res = ""
 
 @bp.route('/customtest', methods=['POST', 'GET'])
 def show():
