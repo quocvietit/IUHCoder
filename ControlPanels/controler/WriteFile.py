@@ -3,10 +3,6 @@ class writeFile:
         self.data = data
         self.path = path
         self.writeFile()
-
-    def __call__(self):
-        self.writeFile()
-
     def writeFile(self):
         try:
             self.file = open(self.path, 'w')

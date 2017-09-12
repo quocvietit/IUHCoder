@@ -15,4 +15,4 @@ map<int,int>::iterator it;
 int main(){
     cin>>s;
     cout<<s<<" cho"<<endl;
-}
+}

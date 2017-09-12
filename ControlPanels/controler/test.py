@@ -1,0 +1,1 @@
+print open(".\Database\Output\output.txt").read()

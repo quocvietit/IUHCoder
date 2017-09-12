@@ -8,9 +8,6 @@ class customtes:
         self.inputText = inputText
         self.pathInput = '.\Database\Input\input.txt'
         self.pathCode = '.\Database\FileCode\\file.cpp'
-        self.__call__()
-
-    def __call__(self, *args, **kwargs):
         self.writeToFile()
         self.compile()
 
@@ -20,3 +17,6 @@ class customtes:
 
     def compile(self):
         cp(self.pathCode, self.pathInput)
+
+    def toString(self):
+        return open(".\Database\Output\output.txt").read()
