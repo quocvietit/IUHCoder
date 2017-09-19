@@ -1,4 +1,5 @@
-import user 
+from User import user
 
-a = user.user(1,1,2,3)
-print a
+a = user('123','123')
+print a.addUser()
+

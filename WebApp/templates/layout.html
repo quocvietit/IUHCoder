@@ -1,77 +1,67 @@
 <!DOCTYPE html>
 <html lang='en'>
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <title class="fa-code"> 
-         {% block title %}
-            {# title website #}
-         {% endblock %}
-         - IUHCoder
-      </title>
-      <!-- Bootstrap Core CSS -->
-      <link rel="stylesheet" 
-         type="text/css" 
-         href='{{ url_for("static", filename="css/bootstrap.min.css") }}'>
-      <!-- Custom CSS -->
-      <link rel="stylesheet" 
-         type="text/css" 
-         href='{{ url_for("static", filename="css/style.css") }}'>
-      <!-- Morris Charts CSS -->
-      <link rel="stylesheet" 
-         type="text/css" 
-         href='{{ url_for("static", filename="css/plugins/morris.css") }}'>
-      <!-- Custom Fonts -->
-      <link rel="stylesheet" 
-         type="text/css" 
-         href='{{ url_for("static", filename="font-awesome/css/font-awesome.min.css") }}'>
-      <!-- table-->
-      <link rel="stylesheet" 
-         type="text/css" 
-         href='{{ url_for("static", filename="css/table.css") }}'>
-      {% block import %}
-         {# import #}
-      {% endblock %}
-   </head>
-   <body>
-      <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-         <!-- list category -->
-         {% include 'category.html'%}
-         <!-- Menu login-->
-         {% if not logged_in %}
-         <!-- login-->
-         <ul class="nav navbar-right top-nav">
-            <li>
-               <a href="/login"><i class="fa fa-fw fa-sign-in" aria-hidden="true"></i> LOGIN</a>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title class="fa-code">
+        {% block title %}{# title website #}{% endblock %}- IUHCoder
+    </title>
+    {%include 'import.html'%}
+    {% block import %}{# import #}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- list category -->
+    {% include 'category.html'%}
+    <!-- Menu login-->
+    {% if not session['logged_in'] %}
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="/login"><i class="fa fa-sign-in"> LOGIN</i></a>
             </li>
-         </ul>
-         {% else %}
-            {% include 'user.html'%}
-         {% endif %}
-      </nav>
-      <div id="page-wrapper">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-lg-9">
-                  {% block content %}
-                     {# content #}
-                  {% endblock %}
-               </div>
-               <!-- blog -->
-               <div class="col-lg-3">
-                  {% include 'newfeed.html' %}
-                  {% include 'contacts.html' %}
-               </div>
+        </ul>
+    {% else %}
+        {% include 'user/user.html'%}
+    {% endif %}
+</nav>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {% block content %}{# content #}{% endblock %}
             </div>
-         </div>
-      </div>
-      <!-- /#page-wrapper -->
-      <!--footer-->
-      {% include 'footer.html' %}
-   </body>
+            <!-- blog -->
+            <div class="col-lg-3">
+                {% include 'blog/newfeed.html' %}
+                {% include 'info/contacts.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
+    <!-- jQuery -->
+    <script src='{{ url_for("static", filename="js/jquery.js") }}'></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src='{{ url_for("static", filename="js/bootstrap.js") }}'></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src='{{ url_for("static", filename="js/plugins/morris/raphael.min.js") }}'></script>
+    <script src='{{ url_for("static", filename="js/plugins/morris/morris.min.js") }}'></script>
+    <script src='{{ url_for("static", filename="js/plugins/morris/morris-data.js") }}'></script>
+</body>
 </html>
 

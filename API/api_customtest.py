@@ -2,16 +2,10 @@ from flask import request, Flask
 
 app = Flask(__name__)
 
-DATA = 'a'
-
-@app.route('/compiler')
+@app.route('/compiler', methods=['POST'])
 def compiler():
-	return DATA
-
-
-@app.route('/compiler', methods=['GET'])
-def get():
-	DATA = 'aaaa'
+	request.get
+	return 
 
 
 if __name__ == '__main__':

@@ -23,7 +23,7 @@
 		<label for='codetext'>
 			Code text
 			<br>
-			{% include 'textAreaCode.html' %}
+			{% include 'customtest/textAreaCode.html' %}
 		</label>
 		<div>
 			<label for='inputtext'>
@@ -38,7 +38,11 @@
 		<label for='inputtext'>
 			Output:
 			<br>
-			<textarea name="outputtext" >{{ ouputText }}</textarea>
+			<textarea name="outputtext" >
+				{% if output!=None %}
+					{{ output }}
+				{% endif %}
+			</textarea>
 		</label>
 		</form>
 		</div>

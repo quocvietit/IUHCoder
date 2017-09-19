@@ -119,3 +119,6 @@ small {
 .div-center{
   margin: 0px auto;
 }
+.text-error {
+    color: #DC143C;
+}

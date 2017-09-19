@@ -1,5 +1,5 @@
-from ControlPanels.controler.WriteFile import writeFile as wf
-from ControlPanels.controler.Compile import compile as cp
+from controlPanels.controler.WriteFile import writeFile as wf
+from controlPanels.controler.Compile import compile as cp
 
 
 class customtes:
