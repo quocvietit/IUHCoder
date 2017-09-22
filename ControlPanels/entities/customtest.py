@@ -1,6 +1,7 @@
-class customtest:
+from controlPanels.entities.Entrance import entrance
+class customtest(entrance):
 
-	def __init__(self, id, code, language, input):
+	def __init__(self):
 		self.id = id
 		self.code = code
 		self.language = language

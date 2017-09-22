@@ -2,9 +2,9 @@ from flask import request, Flask
 
 app = Flask(__name__)
 
-@app.route('/compiler', methods=['POST'])
+@app.route('/runcode', methods=['POST'])
 def compiler():
-	request.get
+	s
 	return 
 
 

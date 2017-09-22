@@ -1,13 +1,13 @@
 from flask import Flask
-from WebApp.views.Index import bp as index_bp
-from WebApp.views.Customtest import bp as customtest_bp
-from WebApp.views.Problems import bp as problems_bp
-from WebApp.views.rating import bp as rating_bp
-from WebApp.views.contests import bp as contests_bp
-from WebApp.views.Login import bp as login_bp
-from WebApp.views.about import bp as about_bp
-from WebApp.views.Register import bp as register_bp
-from WebApp.views.Logout import bp as logout_bp
+from webApp.views.Index import bp as index_bp
+from webApp.views.Customtest import bp as customtest_bp
+from webApp.views.Problems import bp as problems_bp
+from webApp.views.rating import bp as rating_bp
+from webApp.views.contests import bp as contests_bp
+from webApp.views.Login import bp as login_bp
+from webApp.views.About import bp as about_bp
+from webApp.views.Register import bp as register_bp
+from webApp.views.Logout import bp as logout_bp
 
 app = Flask(__name__)
 app.register_blueprint(index_bp)

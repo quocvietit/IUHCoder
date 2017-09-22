@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, url_for, redirect, session, flash
+from flask import Blueprint, render_template, request, redirect, session, flash
+from controlPanels.hanlde.Login import login as lg
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
 
@@ -7,13 +8,12 @@ bp = Blueprint(__name__, __name__, template_folder='templates')
 def login():
     error = None
     if request.method == 'POST':
-        if request.form['userName'] != 'admin':
-            error = 'Invalid Username'
-        elif request.form['password'] != 'admin':
-            error = 'Invalid Password'
-        else:
+        form = lg(request.form)
+        if (form.checkUser()):
             session['logged_in'] = True
-            session['username'] = request.form['userName']
+            session['username'] = form.getUserName()
             flash("You were logged in")
             return redirect('/')
+        else:
+            error = 'Invalid user or password!'
     return render_template('user/login.html', error=error)

@@ -1,13 +1,10 @@
 from __future__ import print_function
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from controlPanels.entities.RegistrationForm import registrationForm
-from controlPanels.entities.User import user
+
+from flask import Blueprint, render_template, request, session, flash
+
+from controlPanels.hanlde.Register import register as rs
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
-
-
-def getDataForm(form):
-    return registrationForm(form['userName'], form['password'], form['confirmPassword'])
 
 
 @bp.route('/register/', methods=['POST', 'GET'])
@@ -16,17 +13,16 @@ def register():
         error = None
         if request.method == 'POST':
 
-            form = getDataForm(request.form)
+            form = rs(request.form)
 
             # check password
             if (form.checkPassword()):
-                newUser = user(form.getUserName(), form.getPassword())
-
-                if (newUser.addUser()):
+                a = form.registerUser()
+                print(a)
+                if (a):
                     flash("Thanks for registering!")
                     session['logged_in'] = True
-                    session['username'] = newUser.getUserName()
-
+                    session['username'] = form.getUserName()
                     return render_template('home/index.html')
                 else:
                     error = 'User exits!'

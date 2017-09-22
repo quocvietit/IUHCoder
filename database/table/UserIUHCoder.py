@@ -30,5 +30,3 @@ table = dynamobd.create_table(
         'WriteCapacityUnits': 5
     }
 )
-
-print("Table Status: ", table.table_status)

@@ -3,13 +3,14 @@ from boto3.dynamodb.conditions import Key
 
 
 class user:
-    def __init__(self, userName, password, fullName=None, age=0, phone=None, email=None):
+    def __init__(self, userName, password, fullName=None, age=0, phone=None, email=None, rating=0):
         self.__userName = userName
         self.__password = password
         self.__fullName = fullName
         self.__age = age
         self.__phone = phone
         self.__email = email
+        self.__rating = rating
         self.__table = 'UserIUHCoder'
 
     def getUserName(self):
@@ -17,6 +18,9 @@ class user:
 
     def getPassword(self):
         return self.__password
+
+    def setPassword(self, password):
+        self.__password = password
 
     def getFullName(self):
         return self.__fullName
@@ -42,11 +46,20 @@ class user:
     def setEmail(self, email):
         self.__email = email
 
-    def toString(self):
-        return "{} - {} - {} - {} - {} - {}".format(self.__userName, self.__password, self.__fullName, self.__age,
-                                                    self.__phone, self.__email)
+    def getRating(self):
+        return self.__rating
 
-    def addUser(self):
+    def setRating(self, rating):
+        self.__rating = rating
+
+    def getTable(self):
+        return self.__table
+
+    def toString(self):
+        return "{} - {} - {} - {} - {} - {} - {}".format(self.__userName, self.__password, self.__fullName, self.__age,
+                                                         self.__phone, self.__email, self.__rating)
+
+    def create(self):
         try:
             con = connection()
             dynamodb = con.getConnection()
@@ -67,9 +80,40 @@ class user:
                     'Age': self.__age,
                     'Phone': self.__phone,
                     'Email': self.__email,
+                    'Rating': self.__rating,
                 }
             )
             return True
 
         except:
             return False
+
+    def update(self):
+        try:
+            con = connection()
+            dynamodb = con.getConnection()
+            table = dynamodb.Table(self.__table)
+
+            response = table.query(
+                KeyConditionExpression=Key('UserName').eq(self.__userName)
+            )
+
+            if (len(response['Items']) == 0):
+                return False
+
+            table.put_item(
+                Item={
+                    'UserName': self.__userName,
+                    'Password': self.__password,
+                    'FullName': self.__fullName,
+                    'Age': self.__age,
+                    'Phone': self.__phone,
+                    'Email': self.__email,
+                    'Rating': self._rating
+                }
+            )
+            return True
+
+        except:
+            return False
+    
