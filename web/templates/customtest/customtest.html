@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Customtest
+{% endblock %}
+
+{% block blog %}
+	Wellcome to IUHCoder
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<!-- Page Heading -->
+        <div class="row">
+        	<div class="col-lg-12">
+                <h1 class="page-header">
+                    Customtest <small></small>
+                </h1>
+            </div>
+        </div>
+        <div>
+        <form method='POST' class = 'editor'>
+		<label for='sourceCode'>
+			Code text
+			<br>
+			{% include 'customtest/textAreaCode.html' %}
+		</label>
+		<div>
+			<label for='input'>
+			Input:
+			<br>
+			<textarea name="input">{% if session['input'] %}{{ session['input'] }}{% endif %}</textarea>
+		</label>
+		</div>
+		<div>
+		<input type='submit' name='customtest' value='Run'>
+		</div>
+		<label for='inputtext'>
+			Output:
+			<br>
+			<textarea name="output" >{% if session['outputCustemtest'] %}{{ session['outputCustemtest'] }}{% endif %}</textarea>
+		</label>
+		</form>
+		</div>
+	</div>
+{% endblock %}

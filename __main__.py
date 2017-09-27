@@ -1,4 +1,4 @@
-from webApp.app import app
+from web.apps import app
 import os
 
 if __name__ == '__main__':
