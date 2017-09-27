@@ -17,8 +17,7 @@ class customtest:
             return 'Compiler Error!'
         else:
             res = cmd.getResult(self.__input)
-            print cmd.clear()
-            print os.getcwd()
+            cmd.clear()
             if res == 400 or res == 404:
                 return 'Runtime Error!'
             else:

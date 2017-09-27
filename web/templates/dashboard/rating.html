@@ -47,18 +47,14 @@
 	        				</tr>
 	        			</thead>
 	        			<tbody>
-	        				<tr>
-	        					<td>001</td>
-	        					<td>EASy</td>
-	        					<td>Admin</td>
-	        					<td>02:00</td>
-	        				</tr>
-	        				<tr>
-	        					<td>001</td>
-	        					<td>EASy</td>
-	        					<td>Admin</td>
-	        					<td>05:00</td>
-	        				</tr>
+	        				{{for i in rating:
+	        					<tr>
+	        						<td>i['UserName']</td>
+	        						<td>i['UserName']</td>
+	        						<td>i['Rating']</td>
+	        						<td>i['UserName']</td>
+	        					</tr>
+	        				}}
 	        			</tbody>
 	        		</table>
         		</div>

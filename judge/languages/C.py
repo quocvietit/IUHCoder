@@ -18,11 +18,11 @@ class C():
             # True = 0 or False = 1
             fileCompiler = os.system('g -o {} {}'.format(classFile, self.__fileName))
 
-            if fileCompiler == 1 or not os.path.isfile(classFile + ".exe"):
+            if fileCompiler == 1 or not os.path.isfile(classFile):
                 return 202
             return 200
         except:
             return 400
 
     def getCMD(self):
-        return '{} < {} > {}'
+        return './{} < {} > {}'

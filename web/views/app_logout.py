@@ -7,5 +7,4 @@ bp = Blueprint(__name__, __name__, template_folder='templates')
 def logout():
     session.pop('logged_in', None)
     flash("You were logged out")
-    os.chdir('..')
     return redirect('/')

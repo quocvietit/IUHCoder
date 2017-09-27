@@ -17,11 +17,11 @@ class CPP():
             # True = 0 or False = 1
             cmd = os.system('g++ -o {} {}'.format(self.__classFile, self.__fileName))
 
-            if cmd == 1 or not os.path.isfile(self.__classFile + ".exe"):
+            if cmd == 1 or not os.path.isfile(self.__classFile):
                 return 202
             return 200
         except:
             return 400
 
     def getCMD(self):
-        return '{} < {} > {}'
+        return './{} < {} > {}'

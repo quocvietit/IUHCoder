@@ -14,7 +14,6 @@ def login():
             session['logged_in'] = True
             session['username'] = form.getUserName()
             flash("You were logged in")
-            os.chdir('workspace')
             return redirect('/')
         else:
             error = 'Invalid user or password!'
