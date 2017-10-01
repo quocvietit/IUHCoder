@@ -7,13 +7,15 @@
 from __future__ import print_function
 from database.Database import connection
 
+TABLE = "UserIUHCoder"
 class ListRating:
-    TABLE = "UserIUHCoder"
+
     
     def __init__(self):
-        self.__connection = connection.getConnectionTable(TABLE)
+        self.__connection = connection().getConnectionTable("UserIUHCoder")
         
     def get_rating(self):
+        print (self.__connection.scan())
         try:
             response = self.__connection.scan()
             return response['Items']

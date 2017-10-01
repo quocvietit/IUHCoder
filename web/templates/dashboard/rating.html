@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-	Contests
+	Ratings
 {% endblock %}
 
 {% block blog %}
@@ -40,21 +40,21 @@
 	        			<caption></caption>
 	        			<thead>
 	        				<tr>
-	        					<th>ID</th>
+	        					<th>#</th>
 	        					<th>NAME</th>
-	        					<th>AUTHOR</th>
-	        					<th>TIME</th>
+	        					<th>SCORE</th>
 	        				</tr>
 	        			</thead>
 	        			<tbody>
-	        				{{for i in rating:
-	        					<tr>
-	        						<td>i['UserName']</td>
-	        						<td>i['UserName']</td>
-	        						<td>i['Rating']</td>
-	        						<td>i['UserName']</td>
-	        					</tr>
-	        				}}
+						{% if not ratings == 404 %}
+							{% for rating in ratings %}
+								<tr>
+									<td>#</td>
+									<td>{{rating['UserName']}}</td>
+									<td>{{rating['Rating']}}</td>
+								</tr>
+							{% endfor %}
+                    	{% endif %}
 	        			</tbody>
 	        		</table>
         		</div>

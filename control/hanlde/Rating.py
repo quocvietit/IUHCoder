@@ -10,5 +10,8 @@ class Rating:
     
     
     def __init__(self):
-        return ListRating.get_rating()
+        self.__connection = ListRating()
+
+    def get_list(self):
+        return self.__connection.get_rating()
         
