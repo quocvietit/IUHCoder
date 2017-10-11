@@ -18,20 +18,19 @@
                 </h1>
             </div>
         </div>
-        <div>
         <form method='POST' class = 'editor'>
 		<label for='sourceCode'>
-			Code text
+			Source code:
 			<br>
 			{% include 'customtest/textAreaCode.html' %}
 		</label>
-		<div>
+			<div>
 			<label for='input'>
 			Input:
 			<br>
 			<textarea name="input">{% if session['input'] %}{{ session['input'] }}{% endif %}</textarea>
-		</label>
-		</div>
+			</label>
+			</div>
 		<div>
 		<input type='submit' name='customtest' value='Run'>
 		</div>
@@ -41,6 +40,5 @@
 			<textarea name="output" >{% if session['outputCustemtest'] %}{{ session['outputCustemtest'] }}{% endif %}</textarea>
 		</label>
 		</form>
-		</div>
 	</div>
 {% endblock %}

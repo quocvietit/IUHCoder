@@ -48,11 +48,13 @@
 	        			<tbody>
 						{% if not ratings == 404 %}
 							{% for rating in ratings %}
+								{% if rating['UserName']!="admin"%}
 								<tr>
 									<td>#</td>
 									<td>{{rating['UserName']}}</td>
 									<td>{{rating['Rating']}}</td>
 								</tr>
+								{% endif %}
 							{% endfor %}
                     	{% endif %}
 	        			</tbody>

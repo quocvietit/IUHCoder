@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, session, flash
 from control.hanlde.Login import login as lg
-import os
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
 
