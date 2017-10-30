@@ -4,7 +4,7 @@ from control.entities.User import user
 
 class register:
     def __init__(self, form):
-        self.__userName = form['userName']
+        self.__userName = form['username']
         self.__password = form['password']
         self.__confirmPassword = form['confirmPassword']
 

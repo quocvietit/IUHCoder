@@ -1,10 +1,9 @@
 from  passlib.hash import sha256_crypt
-from control.entities.User import user
 from control.helper.InfoUser import infoUser
 
 class login:
     def __init__(self, form):
-        self.__userName = form['userName']
+        self.__userName = form['username']
         self.__password = form['password']
 
     def getUserName(self):

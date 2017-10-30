@@ -7,7 +7,7 @@ class customtest:
     def __init__(self, form, userName):
         self.__sourceCode = form['sourceCode']
         self.__input = form['input']
-        self.__output = form['output']
+        self.__output = None
         self.__userName = userName
 
     def getOutput(self):

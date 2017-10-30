@@ -21,7 +21,8 @@
         <div class="row">
         	<div class="col-lg-12">
                 <h1 class="page-header">
-                    Rating <small></small>
+                    Rating
+					<small>(<a href="/about#rating-tutorial" style="text-decoration: none; color:#228B22">toturial</a>)</small>
                 </h1>
             </div>
         </div>
@@ -50,7 +51,7 @@
 							{% for rating in ratings %}
 								{% if rating['UserName']!="admin"%}
 								<tr>
-									<td>#</td>
+									<td></td>
 									<td>{{rating['UserName']}}</td>
 									<td>{{rating['Rating']}}</td>
 								</tr>

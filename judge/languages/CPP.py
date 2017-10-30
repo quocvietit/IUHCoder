@@ -24,4 +24,4 @@ class CPP():
             return 400
 
     def getCMD(self):
-        return './{} < {} > {}'
+        return '{} < {} > {}'

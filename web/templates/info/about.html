@@ -1,38 +1,133 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-	Contests
+Contests
 {% endblock %}
 
 {% block blog %}
-	Wellcome to IUHCoder
+Wellcome to IUHCoder
 {% endblock %}
 
 {% block import %}
-	<!-- table-->
-    <link rel="stylesheet" 
-			type="text/css" 
-			href='{{ url_for("static", filename="css/table.css") }}'>
+<!-- table-->
+<link rel="stylesheet"
+      type="text/css"
+      href='{{ url_for("static", filename="css/table.css") }}'>
+<link rel="stylesheet"
+      type="text/css"
+      href='{{ url_for("static", filename="css/about.css") }}'>
 {% endblock %}
 
 {% block content %}
-	<div class="container-fluid">
-		<!-- Page Heading -->
-        <div class="row">
-        	<div class="col-lg-12">
-                <h1 class="page-header">
-                    About <small>IUHCoder</small>
-                </h1>
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                About
+                <small>IUHCoder</small>
+            </h1>
+        </div>
+    </div>
+
+    <!-- heading-->
+    <div>
+        <div class="row" style="padding: 5px;">
+            <div class="col-sm-2">
+                Tác giả:
+            </div>
+            <div class="col-sm-10">
+                <a href="https://www.facebook.com/quocviet.bmt.7">Vương Quốc Việt</a>
+                <br>
+                <a href="https://www.facebook.com/trinhmaruko">Phan Bảo Trinh</a>
             </div>
         </div>
-
-		<!-- heading-->
-		<h3>
-			Tác giả:
-			<ul>
-				<li>Vương Quốc Việt</li>
-				<li>Phan Bảo Trinh</li>
-			</ul>
-		</h3>
+        <div class="row" style="padding: 5px;">
+            <div class="col-sm-2">
+                Hướng dẫn:
+            </div>
+            <div class="col-sm-10">
+                <a href="http://fit.iuh.edu.vn/teacher@detail@55@ThS.-Dang-Thanh-Binh.html">ThS. Đặng Thanh Bình</a>
+                <br>
+                <a href="http://fit.iuh.edu.vn/teacher@detail@63@ThS.-Nguyen-Van-Quang.html">ThS. Nguyễn Văn Quang</a>
+            </div>
+        </div>
+        <div class="row" style="padding: 5px;">
+            <div class="col-sm-2">
+                Ý tưởng:
+            </div>
+            <div class="col-sm-10">
+                Hệ thống chấm bài tự động Themis của tiến sĩ <strong><a
+                    href="http://hnue.edu.vn/directories/?hoanglm">Lê Minh Hoàng</a></strong> và các hệ thống chấm bài
+                thi được sử dụng trong cuộc thi <strong><a href="https://icpc.baylor.edu/">ACM/ICPC</a></strong> (Cuộc
+                thi lập trình quốc tế lâu đời và danh giá nhất dành cho sinh viên các trường đại học và cao đẳng trên
+                toàn cầu) như <a href="https://www.domjudge.org/">domjudge</a>, <a
+                    href="https://pc2.ecs.csus.edu/">PC^2</a>, <a href="https://pc2.ecs.csus.edu/">Kattis</a>, …
+            </div>
+        </div>
+        <div class="row" style="padding: 5px;">
+            <div class="col-sm-2">
+                Ngôn ngữ:
+            </div>
+            <div class="col-sm-10">
+                Python 2.7
+            </div>
+        </div>
+        <div class="row" style="padding: 5px;">
+            <div class="col-sm-2">
+                Mã nguồn:
+            </div>
+            <div class="col-sm-10">
+                <a href="https://github.com/quocvietit/IUHCoder">IUHCoder</a>
+            </div>
+        </div>
     </div>
+    <div style="height: 20px" id="tutorial">
+    </div>
+    <div class="row">
+        <div class="col-lg-1">
+            <h3>Tutorial</h3>
+        </div>
+        <div class="col-lg-11">
+            <h3 class="page-header">
+            </h3>
+        </div>
+    </div>
+    <div>
+        <ul>
+            <li><a href="#problem-tutorial">Problem</a></li>
+            <li><a href="#contest-tutorial">Contest</a></li>
+            <li><a href="#rating-tutorial">Rating</a></li>
+            <li><a href="#customtest-tutorial">Customtest</a></li>
+            <li><a href="#list-compilers">List of compilers</a></li>
+            <li><a href="#ask">Ask</a></li>
+        </ul>
+    </div>
+    <div style="height: 30px" id="problem-tutorial">
+    </div>
+    <div>
+        <h3>Problem</h3>
+    </div>
+    <div style="height: 30px" id="contest-tutorial"></div>
+    <div>
+        <h3>Contest</h3>
+    </div>
+    <div style="height: 30px" id="rating-tutorial"></div>
+    <div>
+        <h3>Rating</h3>
+    </div>
+    <div style="height: 30px" id="customtest-tutorial"></div>
+    <div>
+        <h3>Customtest</h3>
+    </div>
+    <div style="height: 30px" id="list-compilers"></div>
+    <div>
+        <h3>List of compilers</h3>
+        {% include 'info/listCompilers.html'%}
+    </div>
+    <div style="height: 30px" id="ask"></div>
+    <div>
+        <h3>Ask</h3>
+    </div>
+</div>
 {% endblock %}
