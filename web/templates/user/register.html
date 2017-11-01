@@ -9,6 +9,7 @@
     <link rel="stylesheet" 
       type="text/css" 
       href='{{ url_for("static", filename="css/login.css") }}'>
+    <script src='{{ url_for("static", filename="javascript/checkFormRegister.js") }}'></script>
 {% endblock %}
 
 {% block content %}
@@ -35,22 +36,25 @@
           <form method='POST'>
             <div class="form-group">
               <label for="username">UserName</label>
-              <input type="text" class="form-control" name="username" id="username" aria-describedby="" placeholder="Enter UserName">
+              <input type="text" class="form-control" name="username" id="username" onblur="checkRegister()" aria-describedby="" placeholder="Enter UserName">
+              <i id = "usernamereport" class="text-error"></i>
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+              <input type="password" class="form-control" name="password" id="password" onblur="checkRegister()" placeholder="Password">
+              <i id = "passwordreport" class="text-error"></i>
             </div>
             <div class="form-group">
               <label for="confirmPassword">ConfirmPassword</label>
-              <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="ConfirmPassword">
+              <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" onblur="checkRegister()" placeholder="ConfirmPassword">
+              <i id = "confirmreport" class="text-error"></i>
             </div>
             {% if error != None %}
             <div class="form-group ">
               <div class="text-error">{{ error }}</div>
             </div>
             {% endif %}
-            <input class="btn btn-primary btn-block" type="submit" value="Register"></input>
+            <input class="btn btn-primary btn-block" id ="register" name= "register" type="submit" value="Register" disabled></input>
           </form>
           <div class="text-center">
             <a class="d-block small mt-3" href="/login">Login</a>

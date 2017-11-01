@@ -15,7 +15,6 @@ class ListRating:
         self.__connection = connection().getConnectionTable("UserIUHCoder")
         
     def get_rating(self):
-        print (self.__connection.scan())
         try:
             response = self.__connection.scan()
             return response['Items']

@@ -35,7 +35,7 @@
         	</div>
 
         	<!--problems-->
-        	<div class="card-body">
+        	<div class="card-body textcenter">
         		<div class="table-responsive">
 	        		<table class="table table-bordered" width="100%" id="problem_table" cellspacing="0">
 	        			<caption></caption>
@@ -63,8 +63,10 @@
         		</div>
         	</div>
         	<div class="card-footer small text-muted">
-            Updated yesterday at 00:00 PM
+            Updated  <span id="time" name="time" >xxx</span>
           	</div>
-
     </div>
+	<script>
+	document.getElementById("time").innerHTML = Date();
+	</script>
 {% endblock %}
