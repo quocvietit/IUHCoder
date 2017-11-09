@@ -1,5 +1,6 @@
 from database.Database import connection as con
 from control.entities.User import user
+from control.helper.JsonFormat import jsonFormat as fm
 
 
 class infoUser:
@@ -11,7 +12,7 @@ class infoUser:
         person = con().getItemsTableByKey(self.__table, 'UserName', userName)
         if(len(person)!=2):
             return 404
-        return self.parseUser(person['Item'])
+        return fm(person['Item']).format()
 
     def parseUser(self, items):
         return user(items['UserName'],
@@ -21,4 +22,4 @@ class infoUser:
                     items['Phone'],
                     items['Email'],
                     items['Rating'],
-                    )
+                    ).toString()
