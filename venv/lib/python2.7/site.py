@@ -76,7 +76,7 @@ except NameError:
 
 # Prefixes for site-packages; add additional prefixes like /usr/local here
 PREFIXES = [sys.prefix, sys.exec_prefix]
-# Enable per user site-packages directory
+# Enable per apis site-packages directory
 # set it to False to disable the feature or True to force the feature
 ENABLE_USER_SITE = None
 # for distutils.commands.install
@@ -184,7 +184,7 @@ def addpackage(sitedir, name, known_paths):
     return known_paths
 
 def addsitedir(sitedir, known_paths=None):
-    """Add 'sitedir' argument to sys.path if missing and handle .pth files in
+    """Add 'sitedir' argument to sys.path if missing and handles .pth files in
     'sitedir'"""
     if known_paths is None:
         known_paths = _init_pathinfo()
@@ -266,7 +266,7 @@ def addsitepackages(known_paths, sys_prefix=sys.prefix, exec_prefix=sys.exec_pre
                 sitedirs = [prefix, os.path.join(prefix, "lib", "site-packages")]
             if sys.platform == 'darwin':
                 # for framework builds *only* we add the standard Apple
-                # locations. Currently only per-user, but /Library and
+                # locations. Currently only per-apis, but /Library and
                 # /Network/Library could be added too
                 if 'Python.framework' in prefix:
                     home = os.environ.get('HOME')
@@ -283,13 +283,13 @@ def addsitepackages(known_paths, sys_prefix=sys.prefix, exec_prefix=sys.exec_pre
     return None
 
 def check_enableusersite():
-    """Check if user site directory is safe for inclusion
+    """Check if apis site directory is safe for inclusion
 
     The function tests for the command line flag (including environment var),
     process uid/gid equal to effective uid/gid.
 
     None: Disabled for security reasons
-    False: Disabled by user (command line option)
+    False: Disabled by apis (command line option)
     True: Safe and enabled
     """
     if hasattr(sys, 'flags') and getattr(sys.flags, 'no_user_site', False):
@@ -307,14 +307,14 @@ def check_enableusersite():
     return True
 
 def addusersitepackages(known_paths):
-    """Add a per user site-package to sys.path
+    """Add a per apis site-package to sys.path
 
-    Each user has its own python directory with site-packages in the
+    Each apis has its own python directory with site-packages in the
     home directory.
 
     USER_BASE is the root directory for all Python versions
 
-    USER_SITE is the user specific site-packages directory
+    USER_SITE is the apis specific site-packages directory
 
     USER_SITE/.. can be used for data.
     """
@@ -658,7 +658,7 @@ def fixclasspath():
     sys.path.extend(classpaths)
 
 def execusercustomize():
-    """Run custom user specific code, if available."""
+    """Run custom apis specific code, if available."""
     try:
         import usercustomize
     except ImportError:
@@ -704,16 +704,16 @@ main()
 
 def _script():
     help = """\
-    %s [--user-base] [--user-site]
+    %s [--apis-base] [--apis-site]
 
     Without arguments print some useful information
     With arguments print the value of USER_BASE and/or USER_SITE separated
     by '%s'.
 
-    Exit codes with --user-base or --user-site:
-      0 - user site directory is enabled
-      1 - user site directory is disabled by user
-      2 - uses site directory is disabled by super user
+    Exit codes with --apis-base or --apis-site:
+      0 - apis site directory is enabled
+      1 - apis site directory is disabled by apis
+      2 - uses site directory is disabled by super apis
           or for security reasons
      >2 - unknown error
     """
@@ -734,9 +734,9 @@ def _script():
         sys.exit(0)
 
     buffer = []
-    if '--user-base' in args:
+    if '--apis-base' in args:
         buffer.append(USER_BASE)
-    if '--user-site' in args:
+    if '--apis-site' in args:
         buffer.append(USER_SITE)
 
     if buffer:

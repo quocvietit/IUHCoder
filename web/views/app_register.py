@@ -29,6 +29,6 @@ def register():
             else:
                 error = 'Password not match!'
 
-        return render_template('user/register.html', error=error)
+        return render_template('apis/register.html', error=error)
     except Exception as e:
         return str(e)

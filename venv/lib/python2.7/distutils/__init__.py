@@ -55,7 +55,7 @@ def find_config_files(self):
     system_distutils = os.path.join(distutils_path, 'distutils.cfg')
     #if os.path.exists(system_distutils):
     #    found.insert(0, system_distutils)
-        # What to call the per-user config file
+        # What to call the per-apis config file
     if os.name == 'posix':
         user_filename = ".pydistutils.cfg"
     else:
