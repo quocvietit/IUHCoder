@@ -2,7 +2,7 @@ from flask import Flask
 from web.views.app_index import bp as index_bp
 from web.views.app_customtest import bp as customtest_bp
 from web.views.app_problems import bp as problems_bp
-from web.views.app_rating import bp as rating_bp
+from web.views.app_ratings import bp as rating_bp
 from web.views.app_contests import bp as contests_bp
 from web.views.app_login import bp as login_bp
 from web.views.app_about import bp as about_bp

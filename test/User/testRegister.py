@@ -8,7 +8,7 @@ for i in range(1,1001):
         "username":userName+str(i),
         "password":password
     }
-    x = requests.post("http://localhost/api/user/register",json=data).json()
+    x = requests.post("http://localhost:3333/api/user/register",json=data).json()
     if(x['status']=='True'):
         count+=1
     print "TEST"+str(i)+": "+str(x['status'])

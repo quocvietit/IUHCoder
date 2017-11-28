@@ -26,12 +26,13 @@ def getInformationUser(username):
 def registerUser():
     userName = request.json['username']
     password = request.json['password']
-    return jsonify({"status":str(rs(userName, password).registerUser())})
+    return jsonify({"status": str(rs(userName, password).registerUser())})
 
 
 @api.route('/api/user/login', methods=['POST'])
 def loginUser():
-    userName = request.json['UserName']
-    password = request.json['Password']
-    return jsonify({"status":str(lg(userName, password).checkUser())})
+    userName = request.json['username']
+    password = request.json['password']
+    return jsonify({"status": str(lg(userName, password).checkUser())})
+
 

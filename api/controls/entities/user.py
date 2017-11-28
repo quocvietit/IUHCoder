@@ -4,7 +4,8 @@
 @since: Nov 14, 2017
 """
 from __future__ import print_function
-from database.Database import connection
+from api.databases.database.database import connection
+from api.controls.entities.table import table
 from boto3.dynamodb.conditions import Key
 
 
@@ -17,7 +18,7 @@ class user():
         self.__phone = phone
         self.__email = email
         self.__rating = rating
-        self.__table = 'UserIUHCoder'
+        self.__table = table('user').getTableName()
 
     def getUserName(self):
         return self.__userName

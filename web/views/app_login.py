@@ -6,7 +6,6 @@
 
 from flask import Blueprint, render_template, request, redirect, session, flash
 import requests
-import socket
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
 
@@ -17,12 +16,14 @@ def login():
     if request.method == 'POST':
 
         data = {
-            "UserName": request.form['username'],
-            "Password": request.form['password']
+            "username": request.form['username'],
+            "password": request.form['password']
         }
-        #print 'http://' + socket.gethostbyname(socket.gethostname()) + '/api/user/login'
-        reponse = requests.post("http://localhost/api/user/login", json=data).json()
-        if(reponse['status'] == 'True'):
+
+        reponse = requests.post("http://localhost:3333/api/user/login", json=data).json()
+
+        if ( reponse["status"] == 'True' ):
+            print (reponse["status"])
             session['logged_in'] = True
             session['username'] = request.form['username']
             flash("You were logged in")

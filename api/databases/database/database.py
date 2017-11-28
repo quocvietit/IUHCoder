@@ -30,3 +30,11 @@ class connection():
             return 404
         else:
             return response
+
+    def getAllItemTable(self, table):
+        try:
+            response = self.getConnectionTable(table).scan()
+        except ClientError as e:
+            return 404
+        else:
+            return response

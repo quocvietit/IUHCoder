@@ -1,8 +1,7 @@
 from __future__ import print_function
 
 from flask import Blueprint, render_template, request, session, flash
-
-from control.hanlde.Register import register as rs
+import requests
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
 
@@ -13,22 +12,21 @@ def register():
         error = None
         if request.method == 'POST':
 
-            form = rs(request.form)
+            data = {
+                "username": request.form['username'],
+                "password": request.form['password']
+            }
 
-            # check password
-            if (form.checkPassword()):
-                a = form.registerUser()
-                print(a)
-                if (a):
-                    flash("Thanks for registering!")
-                    session['logged_in'] = True
-                    session['username'] = form.getUserName()
-                    return render_template('home/index.html')
-                else:
-                    error = 'User exits!'
+            reponse = requests.post("http://localhost:3333/api/user/register", json=data).json();
+
+            if (reponse['status'] == 'True'):
+                flash("Thanks for registering!")
+                session['logged_in'] = True
+                session['username'] = request.form['username']
+                return render_template('home/index.html')
             else:
-                error = 'Password not match!'
+                error = 'User exits!'
 
-        return render_template('apis/register.html', error=error)
+        return render_template('user/register.html', error=error)
     except Exception as e:
         return str(e)
