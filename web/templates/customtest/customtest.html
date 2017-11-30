@@ -38,19 +38,19 @@ Customtest
                     </label>
                 </div>
                 <div class="col-sm-8">
-                    <select style="width: 300px">
-                        <option id="C" value="C">C</option>
+                    <select style="width: 300px" id="language" name = "language">
+                        <option id="C" value="C" selected>C</option>
                         <option id="C++" value="C++">C++</option>
                         <option id="C#" value="C#">C#</option>
                         <option id="Java" value="Java">Java</option>
                         <option id="Python" value="Python">Python</option>
-                        <option id="Python3" value="Python3">Python</option>
+                        <option id="Python3" value="Python3">Python 3</option>
                     </select>
                 </div>
             </div>
             <div class="row" style="padding: 10px">
                 <div class="col-sm-2">
-                    <label for='sourceCode'>
+                    <label for='sourcecode'>
                         Source code:
                     </label>
                 </div>
@@ -65,7 +65,7 @@ Customtest
                     </label>
                 </div>
                 <div class="col-sm-8">
-                    <textarea name="input" cols="40" rows="4" style="border: 1px solid #c0c0c0; resize: none; ">{% if session['input'] %}{{ session['input'] }}{% endif %}</textarea>
+                    <textarea name="input" cols="40" rows="4" style="border: 1px solid #c0c0c0; resize: none; ">{% if data['Input'] %}{{ data['Input'] }}{% endif %}</textarea>
                 </div>
             </div>
             <div class="row" style="padding: 5px">
@@ -74,26 +74,30 @@ Customtest
                     <input type='submit' name='customtest' value='Run'>
                 </div>
             </div>
-            {% if session['outputCustemtest'] %}
+            {% if data['Output'] %}
             <div class="row" style="padding: 10px">
                 <div class="col-sm-2">
-                    <label for='input'>
+                    <label for='output'>
                         Output:
                     </label>
                 </div>
                 <div class="col-sm-8">
-                    <textarea name="output" cols="40" rows="4" style="border: 1px solid #c0c0c0; resize: none;">{{ session['outputCustemtest'] }}</textarea>
+                    <textarea name="output" cols="40" rows="4" style="border: 1px solid #c0c0c0; resize: none;">{{data['Output']}}</textarea>
                 </div>
             </div>
             {% endif %}
         </div>
     </form>
 </div>
+<script src='{{ url_for("static", filename="js/selectLang.js") }}'></script>
 <script>
 $(function() {
 	$(".lined").linedtextarea(
 		{selectedLine: 1}
 	);
 });
+</script>
+<script>
+	window.onload=callLanguage("{{data['Lang']}}");
 </script>
 {% endblock %}

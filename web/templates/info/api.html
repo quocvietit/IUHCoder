@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Contests
+{% endblock %}
+
+{% block blog %}
+Wellcome to IUHCoder
+{% endblock %}
+
+{% block import %}
+<!-- table-->
+<link rel="stylesheet"
+      type="text/css"
+      href='{{ url_for("static", filename="css/table.css") }}'>
+<link rel="stylesheet"
+      type="text/css"
+      href='{{ url_for("static", filename="css/about.css") }}'>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                API
+                <small>IUHCoder</small>
+            </h1>
+        </div>
+    </div>
+
+    <!-- heading-->
+    <div>
+        <ul>
+            <li>
+                <span class="label label-default" style="">Alert Badge</span>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

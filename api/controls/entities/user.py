@@ -10,7 +10,7 @@ from boto3.dynamodb.conditions import Key
 
 
 class user():
-    def __init__(self, userName, password, fullName=None, age=0, phone=None, email=None, rating=0):
+    def __init__(self, userName, password = None, fullName=None, age=0, phone=None, email=None, rating=0):
         self.__userName = userName
         self.__password = password
         self.__fullName = fullName
@@ -78,7 +78,6 @@ class user():
                                      self.__rating)
 
     # create User
-
     def create(self):
         try:
             con = connection()
@@ -96,10 +95,6 @@ class user():
                 Item={
                     'UserName': self.__userName,
                     'Password': self.__password,
-                    'FullName': self.__fullName,
-                    'Age': self.__age,
-                    'Phone': self.__phone,
-                    'Email': self.__email,
                     'Rating': self.__rating,
                 }
             )
@@ -109,29 +104,28 @@ class user():
             return False
 
     # update --
-    def update(self):
+    def update(self, data):
         try:
             con = connection()
             dynamodb = con.getConnection()
             table = dynamodb.Table(self.__table)
 
-            response = table.query(
-                KeyConditionExpression=Key('UserName').eq(self.__userName)
-            )
+            query = "set "
+            value = {}
+            cnt = 1
+            print(data)
+            for key in data.keys():
+                query += key + " = :val" + str(cnt) + ", "
+                value[':val' + str(cnt)] = data[key]
+                cnt += 1
 
-            if (len(response['Items']) == 0):
-                return False
-
-            table.put_item(
-                Item={
-                    'UserName': self.__userName,
-                    'Password': self.__password,
-                    'FullName': self.__fullName,
-                    'Age': self.__age,
-                    'Phone': self.__phone,
-                    'Email': self.__email,
-                    'Rating': self._rating
-                }
+            query = query[:-2]
+            table.update_item(
+                Key={
+                    'UserName': self.__userName
+                },
+                UpdateExpression=query,
+                ExpressionAttributeValues=value
             )
             return True
 

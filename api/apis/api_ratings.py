@@ -10,8 +10,8 @@ from api.controls.helpers.rating_getList import rating
 
 api = Blueprint(__name__, __name__, template_folder='templates')
 
+
 @api.route('/api/user/ratings', methods=['GET'])
 def getListRating():
     listRating = rating().getListRatingByJsonFormat()
     return jsonify(listRating)
-
