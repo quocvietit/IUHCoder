@@ -4,8 +4,8 @@
 @since: Nov 23, 2017
 """
 
-from api.judge.hanlde.actions import actions
-from api.controls.entities.task import task
+from judge.hanlde.actions import actions
+from controls.entities.task import task
 
 
 class customtest:

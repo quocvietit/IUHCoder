@@ -3,9 +3,9 @@
 @version: 2.0
 @since: Nov 23, 2017
 """
-from api.judge.languages.language import language
-from api.judge.executors.file import file
-from api.judge.executors.directory import directory
+from judge.languages.language import language
+from judge.executors.file import file
+from judge.executors.directory import directory
 import os
 import filecmp
 

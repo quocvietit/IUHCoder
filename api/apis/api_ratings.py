@@ -6,7 +6,7 @@
 
 from __future__ import print_function
 from flask import Blueprint, jsonify
-from api.controls.helpers.rating_getList import rating
+from controls.helpers.rating_getList import rating
 
 api = Blueprint(__name__, __name__, template_folder='templates')
 

@@ -4,9 +4,9 @@
 @since: Nov 18, 2017
 """
 
-from api.databases.database.database import connection
-from api.controls.entities.table import table
-from api.controls.helpers.jsonFormat import jsonFormat as fm
+from databases.database.database import connection
+from controls.entities.table import table
+from controls.helpers.jsonFormat import jsonFormat as fm
 
 
 class rating():

@@ -1,7 +1,10 @@
 from flask import Blueprint, render_template, request, session, redirect
+from IP import ip
 import requests
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
+
+IP = ip().getIP()
 
 
 @bp.route('/customtest', methods=['POST', 'GET'])
@@ -20,7 +23,7 @@ def customtest():
 
     if request.method == 'GET':
 
-        reponse = requests.get("http://localhost:3333/api/user/customtest/" + userName).json()
+        reponse = requests.get("http://" + IP + ":3333/api/user/customtest/" + userName).json()
 
         if "Lang" in reponse:
             data['Lang'] = reponse['Lang']
@@ -33,11 +36,11 @@ def customtest():
             "Input": request.form['input']
         }
 
-        reponse = requests.post("http://localhost:3333/api/user/customtest/" + userName, json=postData).json()
+        reponse = requests.post("http://" + IP + ":3333/api/user/customtest/" + userName, json=postData).json()
 
         data['Lang'] = postData['Lang']
         data['SourceCode'] = postData['SourceCode']
         data['Input'] = postData['Input']
         data['Output'] = reponse['Output']
 
-    return render_template("customtest/customtest.html", data = data)
+    return render_template("customtest/customtest.html", data=data)

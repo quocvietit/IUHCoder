@@ -1,19 +1,19 @@
 from flask import Flask, session
-from web.views.app_index import bp as index_bp
-from web.views.app_customtest import bp as customtest_bp
-from web.views.app_problems import bp as problems_bp
-from web.views.app_ratings import bp as rating_bp
-from web.views.app_contests import bp as contests_bp
-from web.views.app_user import bp as user
-from web.views.app_info import bp as info
+from views.app_index import bp as index
+from views.app_customtest import bp as customtest
+from views.app_problems import bp as problems
+from views.app_ratings import bp as rating
+from views.app_contests import bp as contests
+from views.app_user import bp as user
+from views.app_info import bp as info
 import os
 
 app = Flask(__name__)
-app.register_blueprint(index_bp)
-app.register_blueprint(customtest_bp)
-app.register_blueprint(problems_bp)
-app.register_blueprint(rating_bp)
-app.register_blueprint(contests_bp)
+app.register_blueprint(index)
+app.register_blueprint(customtest)
+app.register_blueprint(problems)
+app.register_blueprint(rating)
+app.register_blueprint(contests)
 app.register_blueprint(user)
 app.register_blueprint(info)
 

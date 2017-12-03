@@ -3,8 +3,8 @@
 @version: 2.0
 @since: Nov 14, 2017
 """
-from  passlib.hash import sha256_crypt
-from api.controls.helpers.user_getInformation import inforUser
+from passlib.hash import sha256_crypt
+from controls.helpers.user_getInformation import inforUser
 
 
 class login():

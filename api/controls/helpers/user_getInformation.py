@@ -5,9 +5,9 @@
 """
 
 from __future__ import print_function
-from api.databases.database.database import connection as con
-from api.controls.entities.user import user
-from api.controls.helpers.jsonFormat import jsonFormat as fm
+from databases.database.database import connection as con
+from controls.entities.user import user
+from controls.helpers.jsonFormat import jsonFormat as fm
 
 
 class inforUser():

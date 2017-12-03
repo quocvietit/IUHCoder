@@ -5,7 +5,7 @@
 """
 from __future__ import print_function
 from passlib.hash import sha256_crypt
-from api.controls.entities.user import user
+from controls.entities.user import user
 
 
 class register:

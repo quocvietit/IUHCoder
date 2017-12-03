@@ -1,7 +1,10 @@
 from flask import Blueprint, render_template, request, redirect, session, flash
+from IP import ip
 import requests
 
 bp = Blueprint(__name__, __name__, template_folder='templates')
+
+IP = ip().getIP()
 
 
 @bp.route('/register/', methods=['POST', 'GET'])
@@ -15,7 +18,7 @@ def register():
                 "Password": request.form['password']
             }
 
-            reponse = requests.post("http://localhost:3333/api/user/register", json=data).json()
+            reponse = requests.post("http://"+IP+":3333/api/user/register", json=data).json()
 
             if (reponse['Status'] == 'True'):
                 flash("Thanks for registering!")
@@ -39,7 +42,7 @@ def login():
             "Password": request.form['password']
         }
 
-        reponse = requests.post("http://localhost:3333/api/user/login", json=data).json()
+        reponse = requests.post("http://"+IP+":3333/api/user/login", json=data).json()
 
         if (reponse["Status"] == 'True'):
             session['username'] = request.form['username']

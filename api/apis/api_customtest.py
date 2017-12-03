@@ -6,9 +6,9 @@
 
 from __future__ import print_function
 from flask import Blueprint, jsonify, request
-from api.controls.helpers.user_getInformation import inforUser
-from api.controls.handles.customtest import customtest as cu
-from api.controls.entities.user import user
+from controls.helpers.user_getInformation import inforUser
+from controls.handles.customtest import customtest as cu
+from controls.entities.user import user
 
 api = Blueprint(__name__, __name__, template_folder='templates')
 
@@ -33,7 +33,7 @@ def customtest(username):
 
         hanlde = cu(userName, sourceCode, input, language)
         output = hanlde.getOutput()
-        print (output)
+        print(output)
         return jsonify({"Output": output})
 
     data = inforUser(userName).getJson()

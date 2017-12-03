@@ -4,8 +4,8 @@
 @since: Nov 14, 2017
 """
 from __future__ import print_function
-from api.databases.database.database import connection
-from api.controls.entities.table import table
+from databases.database.database import connection
+from controls.entities.table import table
 from boto3.dynamodb.conditions import Key
 
 

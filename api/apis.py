@@ -5,9 +5,9 @@
 """
 
 from flask import Flask
-from api.apis.api_user import api as user
-from api.apis.api_ratings import api as rating
-from api.apis.api_customtest import api as customtest
+from apis.api_user import api as user
+from apis.api_ratings import api as rating
+from apis.api_customtest import api as customtest
 import os
 
 api = Flask(__name__)

@@ -6,9 +6,9 @@
 
 from __future__ import print_function
 from flask import Blueprint, request, jsonify
-from api.controls.helpers.user_getInformation import inforUser
-from api.controls.handles.user_resgister import register as rs
-from api.controls.handles.user_login import login as lg
+from controls.helpers.user_getInformation import inforUser
+from controls.handles.user_resgister import register as rs
+from controls.handles.user_login import login as lg
 
 api = Blueprint(__name__, __name__, template_folder='templates')
 
